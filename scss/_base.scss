@@ -1,0 +1,122 @@
+html {
+  position: relative;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  min-width: 320px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #221f1f;
+  // background-color: #FFF6EB;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;  
+}
+
+main {
+  flex-grow: 1;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+svg {
+  max-height: 100%;
+}
+
+button {
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+p,
+figure,
+fieldset {
+  margin: 0;
+}
+
+iframe {
+  border: none;
+}
+
+/*
+Доступно скрываю элементы
+*/
+
+.visually-hidden {
+  position: fixed;
+  transform: scale(0);
+}
+
+/*
+Пример контейнера
+
+Если контейнер 1180px по макету,
+то для max-width прибавляем паддинги 30px*2, 
+в итоге 1240px
+Чтобы контент не прижимался к краям экрана
+*/
+
+.container {
+  --container-padding: 40px;
+  --container-width: 1180px;
+  max-width: calc(var(--container-width) + var(--container-padding) * 2);
+  padding: 0 var(--container-padding);
+  margin: 0 auto;
+}
+
+//========================================================================================================================================================
+.body {
+  // .body_gift
+  &_gift {
+    background-image: url("../img/bg-gift.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  // .body_congratulation
+  &_congratulation {
+    background-image: url("../img/bg-greeting.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+.main-content {
+}
