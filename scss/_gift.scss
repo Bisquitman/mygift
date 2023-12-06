@@ -1,20 +1,41 @@
 .gift {
   padding: 20px 0 80px;
 
+  @media (max-width: 1024px) {
+    padding: 0 0 34px;
+  }
+
+  @media (max-width: 920px) {
+    padding-bottom: 50px;
+  }
+
+  @media (max-width: 540px) {
+    padding-top: 24px;
+  }
+
   // .gift__title
   &__title {
     font-size: 32px;
     font-weight: 700;
     line-height: 120%;
     margin-bottom: 16px;
+
+    @media (max-width: 1024px) {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
   }
 
   // .gift__description
   &__description {
     font-size: 20px;
     font-weight: 400;
-    line-height: 140%;
     margin-bottom: 50px;
+
+    @media (max-width: 1024px) {
+      font-size: 16px;
+      margin-bottom: 32px;
+    }
   }
 
   // .gift__wrapper
@@ -22,45 +43,69 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 20px;
+    gap: 50px 20px;
+
+    @media (max-width: 920px) {
+      flex-direction: column;
+      align-items: stretch;
+    }
   }
 
   // .gift__card
   &__card {
-    flex-basis: 580px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    max-width: 580px;
+
+    @media (max-width: 1024px) {
+      max-width: 464px;
+    }
   }
   // .gift__slider
   &__slider {
     // .gift__slider_card
     &_card {
+      margin-bottom: 20px;
+
+      @media (max-width: 1024px) {
+        margin-bottom: 12px;
+      }
     }
-    // .gift__slider_thubms
-    &_thubms {
+    // .gift__slider_thumbs
+    &_thumbs {
       margin-left: 0;
     }
   }
   // .gift__card-slide
   &__card-slide {
-    max-width: 576px;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    overflow: hidden;
+    box-sizing: border-box;
+    &.swiper-slide-active {
+      border-color: #4baa00;
+    }
   }
   // .gift__card-image
   &__card-image {
-    border: 2px solid #4BAA00;
-    border-radius: 20px;
   }
   // .gift__thumb-slide
   &__thumb-slide {
-    max-width: 72px;
+    border-radius: 10px;
+    overflow: hidden;
+
+    @media (max-width: 540px) {
+      border-radius: 4px;
+    }
   }
   // .gift__thumb-image
   &__thumb-image {
-    border-radius: 10px;
   }
   // .gift__form
   &__form {
-    flex-basis: 480px;
+    max-width: 480px;
+
+    @media (max-width: 920px) {
+      max-width: none;
+      width: 100%;
+    }
   }
 }

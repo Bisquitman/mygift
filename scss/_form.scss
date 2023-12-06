@@ -2,9 +2,20 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
+  justify-items: start;
+
+  @media (max-width: 1024px) {
+    gap: 12px;
+  }
+
+  @media (max-width: 540px) {
+    grid-template-columns: 1fr;
+  }
 
   // .form__label
   &__label {
+    width: 100%;
+
     // .form__label_textarea
     &_textarea {
       grid-column: 1 / -1;
@@ -19,15 +30,15 @@
   // .form__field
   &__field {
     width: 100%;
-    line-height: 140%;
+    font: inherit;
     padding: 8px 16px;
     outline: none;
     border-radius: 6px;
     border: 1px solid #dedede;
-    background: #fbfbfb;
+    background-color: #fbfbfb;
 
     &:hover,
-    &:focus,
+    &:active,
     &:focus-visible {
       border-color: #999;
     }
@@ -35,19 +46,19 @@
     // .form__field_textarea
     &_textarea {
       resize: vertical;
+      min-height: 150px;
     }
   }
   // .form__btn
   &__btn {
-    justify-self: start;
     color: #fff;
     text-align: center;
     font-weight: 700;
+    line-height: 140%;
     padding: 8px 24px;
     border-radius: 32px;
     border: 1px solid transparent;
     background-color: #4baa00;
-    line-height: 140%;
     outline: none;
     transition: background-color 0.3s;
 
@@ -63,6 +74,10 @@
     &:focus-visible {
       border-color: #58c601;
       background-color: #4baa00;
+    }
+
+    &:active {
+      transform: translate(2px, 2px);
     }
 
     &:disabled {

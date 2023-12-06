@@ -1,4 +1,21 @@
 .card {
+  // .card__inner
+  &__inner {
+    position: relative;
+    max-width: 580px;
+    margin: 0 auto;
+    perspective: 1000px;
+  }
+  &__front,
+  &__back {
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #fff;
+    width: 580px;
+    max-width: 100%;
+    aspect-ratio: 580/375;
+    transition: transform 1s;
+  }
   // .card__front
   &__front {
   }
@@ -7,29 +24,60 @@
   }
   // .card__back
   &__back {
-  }
-}
+    padding: 32px;
 
-.back {
-  // .back__title
+    @media (max-width: 540px) {
+      padding: 24px;
+      aspect-ratio: unset;
+    }
+  }
+  // .card__title
   &__title {
+    color: #f44;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 120%;
+    margin-bottom: 24px;
+
+    @media (max-width: 540px) {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
   }
-  // .back__contacts
+  // .card__contacts
   &__contacts {
+    display: grid;
+    grid-template-columns: 54px 1fr;
+    justify-items: start;
+    gap: 8px 16px;
+    margin-bottom: 24px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 540px) {
+      margin-bottom: 12px;
+    }
   }
-  // .back__contacts-from
-  &__contacts-from {
+  // .card__detail
+  &__detail {
   }
-  // .back__contacts-label
-  &__contacts-label {
+  // .card__subtitle
+  &__subtitle {
+    opacity: 0.3;
   }
-  // .back__contacts-name
-  &__contacts-name {
+  // .card__from
+  &__from {
   }
-  // .back__contacts-to
-  &__contacts-to {
+  // .card__to
+  &__to {
   }
-  // .back__congratulation
-  &__congratulation {
+  // .card__message
+  &__message {
+    font-size: 20px;
+
+    @media (max-width: 540px) {
+      font-size: 16px;
+    }
   }
 }

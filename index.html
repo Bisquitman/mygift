@@ -21,6 +21,7 @@
   <link href="./css/index.css" rel="stylesheet">
 
   <script src="./libs/swiper/swiper-bundle.min.js" defer></script>
+  <script src="./js/index.js" defer></script>
 </head>
 
 <body class="body body_gift">
@@ -42,7 +43,7 @@
             <!-- Основной слайдер -->
             <div class="gift__slider gift__slider_card swiper">
               <!-- Движущаяся часть слайдера -->
-              <div class="gift__wrapper swiper-wrapper">
+              <div class="swiper-wrapper">
                 <!-- Слайд -->
                 <div class="gift__card-slide swiper-slide">
                   <img class="gift__card-image" src="./img/cards/card-01.jpg" alt="Открытка № 1">
@@ -61,11 +62,11 @@
                 </div>
               </div>
             </div>
-            
+
             <!-- Слайдер с миниатюрами -->
-            <div class="gift__slider gift__slider_thubms swiper">
+            <div thumbsSlider="" class="gift__slider gift__slider_thumbs swiper">
               <!-- Движущаяся часть слайдера -->
-              <div class="gift__wrapper swiper-wrapper">
+              <div class="gift__thumb-wrapper swiper-wrapper">
                 <!-- Слайд -->
                 <div class="gift__thumb-slide swiper-slide">
                   <img class="gift__thumb-image" src="./img/cards/card-01.jpg" alt="Открытка № 1">
@@ -83,7 +84,7 @@
                   <img class="gift__thumb-image" src="./img/cards/card-05.jpg" alt="Открытка № 5">
                 </div>
               </div>
-            </div>            
+            </div>
           </div>
 
           <form class="gift__form form">
@@ -105,7 +106,8 @@
             </label>
             <label class="form__label form__label_textarea">
               <span class="form__label-text">поздравительный текст</span>
-              <textarea class="form__field form__field_textarea" name="message" rows="6" placeholder="Напишите тёплые слова"></textarea>
+              <textarea class="form__field form__field_textarea" name="message" rows="6"
+                placeholder="Напишите тёплые слова"></textarea>
             </label>
 
             <button class="form__btn" type="submit" disabled>Отправить</button>

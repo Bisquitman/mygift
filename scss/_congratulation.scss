@@ -1,9 +1,48 @@
 .congratulation {
+  padding: 20px 0 80px;
+
+  @media (max-width: 1024px) {
+    padding: 0 0 34px;
+  }
+
+  @media (max-width: 920px) {
+    padding-bottom: 50px;
+  }
+
+  @media (max-width: 540px) {
+    padding-top: 8px;
+  }
+
   // .congratulation__title
   &__title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 120%;
+    text-align: center;
+    margin-bottom: 16px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 1024px) {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
   }
   // .congratulation__description
   &__description {
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 50px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 1024px) {
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
   }
   // .congratulation__card
   &__card {
