@@ -1,20 +1,37 @@
 .card {
+  position: relative;
+  width: 580px;
+  height: 375px;
+  perspective: 1000px;
+
+  @media (max-width: 540px) {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 580/375;
+  }
+
   // .card__inner
   &__inner {
-    position: relative;
-    max-width: 580px;
-    margin: 0 auto;
-    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.5s linear;
+    width: 100%;
+    height: 100%;
+
+    &._rotate {
+      transform: rotateY(-180deg);
+    }
   }
+
   &__front,
   &__back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
     border-radius: 20px;
     overflow: hidden;
-    background-color: #fff;
-    width: 580px;
-    max-width: 100%;
-    aspect-ratio: 580/375;
-    transition: transform 1s;
   }
   // .card__front
   &__front {
@@ -24,11 +41,12 @@
   }
   // .card__back
   &__back {
+    background-color: #fff;
     padding: 32px;
+    transform: rotateY(180deg);
 
     @media (max-width: 540px) {
       padding: 24px;
-      aspect-ratio: unset;
     }
   }
   // .card__title

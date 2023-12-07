@@ -94,11 +94,15 @@ iframe {
 */
 
 .container {
-  --container-padding: 30px;
+  --container-padding: 40px;
   --container-width: 1180px;
   max-width: calc(var(--container-width) + var(--container-padding) * 2);
   padding: 0 var(--container-padding);
   margin: 0 auto;
+
+  @media (max-width: 980px) {
+    --container-padding: 44px;
+  }
 
   @media (max-width: 540px) {
     --container-padding: 16px;
