@@ -74,6 +74,10 @@
     // .gift__slider_thumbs
     &_thumbs {
       margin-left: 0;
+
+      .swiper-slide-thumb-active {
+        border-color: #4baa00;
+      }
     }
   }
   // .gift__card-slide
@@ -91,10 +95,13 @@
   }
   // .gift__thumb-slide
   &__thumb-slide {
+    max-width: 72px;
     border-radius: 10px;
     overflow: hidden;
+    border: 2px solid transparent;
 
     @media (max-width: 540px) {
+      max-width: 56px;
       border-radius: 4px;
     }
   }

@@ -469,6 +469,12 @@ iframe {
     padding-top: 24px;
   }
 }
+.header__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-items: start;
+}
 .header__logo {
   width: 180px;
 }
@@ -558,6 +564,9 @@ iframe {
 .gift__slider_thumbs {
   margin-left: 0;
 }
+.gift__slider_thumbs .swiper-slide-thumb-active {
+  border-color: #4baa00;
+}
 .gift__card-slide {
   border-radius: 20px;
   border: 2px solid transparent;
@@ -569,11 +578,14 @@ iframe {
   border-color: #4baa00;
 }
 .gift__thumb-slide {
+  max-width: 72px;
   border-radius: 10px;
   overflow: hidden;
+  border: 2px solid transparent;
 }
 @media (max-width: 540px) {
   .gift__thumb-slide {
+    max-width: 56px;
     border-radius: 4px;
   }
 }
@@ -729,16 +741,16 @@ iframe {
 
 .card {
   position: relative;
-  width: 580px;
+  width: 100%;
+  max-width: 580px;
   height: 375px;
   -webkit-perspective: 1000px;
           perspective: 1000px;
 }
-@media (max-width: 540px) {
+@media (max-width: 580px) {
   .card {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 580/375;
+    height: calc(64.5833333333vw - 20px);
+    margin-bottom: 20px;
   }
 }
 .card__inner {
@@ -750,6 +762,9 @@ iframe {
   transition: transform 0.5s linear, -webkit-transform 0.5s linear;
   width: 100%;
   height: 100%;
+}
+.card__inner:not(:last-child) {
+  margin-bottom: 50px;
 }
 .card__inner._rotate {
   -webkit-transform: rotateY(-180deg);
@@ -766,13 +781,17 @@ iframe {
   border-radius: 20px;
   overflow: hidden;
 }
+.card__front-image {
+  border-radius: 20px;
+  overflow: hidden;
+}
 .card__back {
   background-color: #fff;
   padding: 32px;
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
 }
-@media (max-width: 540px) {
+@media (max-width: 580px) {
   .card__back {
     padding: 24px;
   }
@@ -784,10 +803,10 @@ iframe {
   line-height: 120%;
   margin-bottom: 24px;
 }
-@media (max-width: 540px) {
+@media (max-width: 580px) {
   .card__title {
     font-size: 20px;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
   }
 }
 .card__contacts {
@@ -795,23 +814,29 @@ iframe {
   grid-template-columns: 54px 1fr;
   justify-items: start;
   gap: 8px 16px;
+  color: #000;
   margin-bottom: 24px;
 }
 .card__contacts:last-child {
   margin-bottom: 0;
 }
-@media (max-width: 540px) {
+@media (max-width: 580px) {
   .card__contacts {
-    margin-bottom: 12px;
+    margin-bottom: 0;
   }
 }
 .card__subtitle {
   opacity: 0.3;
 }
+@media (max-width: 580px) {
+  .card__subtitle {
+    opacity: 0.5;
+  }
+}
 .card__message {
   font-size: 20px;
 }
-@media (max-width: 540px) {
+@media (max-width: 580px) {
   .card__message {
     font-size: 16px;
   }

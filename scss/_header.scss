@@ -9,6 +9,12 @@
     padding-top: 24px;
   }
 
+  // .header__container
+  &__container {
+    display: flex;
+    justify-items: start;
+  }
+
   // .header__logo
   &__logo {
     width: 180px;
