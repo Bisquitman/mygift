@@ -1,4 +1,41 @@
 const API_URL = `https://mysterious-gorgeous-sodalite.glitch.me`;
+// const API_URL = `http://127.0.0.1:3000`;
+const preload = {
+  elem: document.createElement("div"),
+  content: `
+    <div class="spinner">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+  `,
+  add(container) {
+    container.style.position = "relative";
+    container.append(this.elem);
+  },
+  remove(container) {
+    setTimeout(() => {
+      this.elem.remove();
+      container.style = "";
+      this.elem.style = "";
+      document.querySelector(".preload")?.remove();
+      document.head.querySelector("style#preloader")?.remove();
+      document.head.querySelector("script#preloader")?.remove();
+    }, 500);
+  },
+  init() {
+    this.elem.className = "preload";
+    this.elem.innerHTML = this.content;
+  },
+};
+try {
+  preload.init();
+  window.onload = () => {
+    preload.remove(document.body);
+  };
+} catch (error) {
+  console.warn(error);
+}
 
 try {
   // Slider
@@ -85,9 +122,14 @@ try {
 
   form.addEventListener("input", updateSubmitBtn);
 
-  // todo preloader
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+
+    // todo preloader
+    const submitBtnText = submitBtn.textContent;
+    submitBtn.textContent = "";
+    preload.add(submitBtn);
+    submitBtn.querySelector(".preload").style.cssText = `position: static;padding: 0;background-color: transparent;`;
 
     const errors = validate(form, {
       // sender_phone, recipient_phone - атрибут "name" полей формы, которые валидируем
@@ -101,6 +143,7 @@ try {
         errorString += "\n" + errors[key];
       }
       alert(errorString);
+      preload.remove(document.body);
       return;
     }
 
@@ -117,11 +160,17 @@ try {
       });
       const result = await response.json();
       if (response.ok) {
-        prompt('Открытка успешно сохранена. Скопируйте ссылку ниже для отправки адресату: ', `${location.origin}/card.html?id=${result.id}`)
+        prompt(
+          "Открытка успешно сохранена. Скопируйте ссылку ниже для отправки адресату: ",
+          `${location.origin}/card.html?id=${result.id}`,
+        );
         form.reset();
       } else {
         alert(`Ошбика при отправке: ${result.message}`);
       }
+      preload.remove(submitBtn);
+      submitBtn.textContent = submitBtnText;
+      updateSubmitBtn();
     } catch (error) {
       console.error(`Произошла ошибка при отправке: ${error}`);
       alert(`Произошла ошибка. Попробуйте снова позже.`);

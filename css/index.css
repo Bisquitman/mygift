@@ -1,4 +1,75 @@
 @charset "UTF-8";
+/* Preloader */
+.preload {
+  --color: #ff4444;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 14px 32px;
+  margin: auto;
+  background-color: rgb(255, 255, 255);
+  z-index: 99;
+}
+
+.spinner {
+  /* margin: 100px auto; */
+  width: 70px;
+  text-align: center;
+  line-height: 1;
+}
+
+.spinner > div {
+  width: 14px;
+  height: 14px;
+  background-color: var(--color);
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+  animation: bouncedelay 1.4s infinite ease-in-out;
+  /* Prevent first frame from flickering when animation starts */
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+  }
+  40% {
+    -webkit-transform: scale(1);
+  }
+}
+@keyframes bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -658,6 +729,9 @@ iframe {
   border: 1px solid transparent;
   background-color: #4baa00;
   outline: none;
+  overflow: hidden;
+  min-width: 133px;
+  min-height: 40px;
   -webkit-transition: background-color 0.3s;
   transition: background-color 0.3s;
 }
